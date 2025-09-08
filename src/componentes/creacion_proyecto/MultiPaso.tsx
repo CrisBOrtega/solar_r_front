@@ -13,7 +13,11 @@ export interface FormData {
     pasos: string[];
     software: string[];
     hardware: string[];
-    recursos: string[];
+    recursos: {
+      nombre: string;
+      valor: number;
+      cantidad: number;
+    }[];
   }
 
   const MultiPaso: React.FC = () => {
@@ -25,7 +29,11 @@ export interface FormData {
       pasos: [],
       software: [],
       hardware: [],
-      recursos: ["", "", ""],
+      recursos: [
+        { nombre: "", valor: 0, cantidad: 0 },
+        { nombre: "", valor: 0, cantidad: 0 },
+        { nombre: "", valor: 0, cantidad: 0 },
+      ],
     });
 
     const nextStep = () => setStep((prev) => prev + 1);

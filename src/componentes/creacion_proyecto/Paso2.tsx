@@ -15,21 +15,47 @@ export const Paso2: React.FC<Step2Props>= ({ data, update }) => {
         update({ pasos: newPasos });
       };
 
+      const handleAdd = () => {
+        update({ pasos: [...data.pasos, ""] });
+      };
+    
+      const handleRemove = (index: number) => {
+        const newPasos = data.pasos.filter((_, i) => i !== index);
+        update({ pasos: newPasos });
+      };
+
 
 
       return (
         <div>
           <h3 className="mb-2 font-bold">Pasos del proyecto</h3>
-          {[0, 1, 2].map((i) => (
-            <input
-              key={i}
-              type="text"
-              className="border p-2 w-full mb-2"
-              placeholder={`Paso ${i + 1}`}
-              value={data.pasos[i] || ""}
-              onChange={(e) => handleChange(i, e.target.value)}
-            />
+    
+          {data.pasos.map((paso, i) => (
+            <div key={i} className="flex items-center mb-2 gap-2">
+              <input
+                type="text"
+                className="border p-2 flex-1"
+                placeholder={`Paso ${i + 1}`}
+                value={paso}
+                onChange={(e) => handleChange(i, e.target.value)}
+              />
+              <button
+                type="button"
+                className="bg-red-500 text-white px-3 py-1 rounded"
+                onClick={() => handleRemove(i)}
+              >
+                Eliminar
+              </button>
+            </div>
           ))}
+    
+          <button
+            type="button"
+            className="bg-blue-500 text-white px-4 py-2 rounded mt-2"
+            onClick={handleAdd}
+          >
+            ➕ Añadir paso
+          </button>
         </div>
       );
   }
