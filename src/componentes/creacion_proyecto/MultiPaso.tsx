@@ -18,6 +18,7 @@ export interface FormData {
       valor: number;
       cantidad: number;
     }[];
+    usuario_id: number; // ID del usuario que crea el proyecto
   }
 
   const MultiPaso: React.FC = () => {
@@ -34,6 +35,7 @@ export interface FormData {
         { nombre: "", valor: 0, cantidad: 0 },
         { nombre: "", valor: 0, cantidad: 0 },
       ],
+      usuario_id: +localStorage.getItem("usuario_id")!// ID de usuario fijo por ahora
     });
 
     const nextStep = () => setStep((prev) => prev + 1);
