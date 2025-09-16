@@ -24,9 +24,9 @@ export const Paso1: React.FC<Step1Props> = ({ data, update }) => {
             onChange={(e) => update({ energia: e.target.value })}
           >
             <option value="">Seleccione...</option>
-            <option value="eolica">Eólica</option>
+            <option value="Eólica">Eólica</option>
             <option value="solar">Solar</option>
-            <option value="hidroelectrica">Hidroeléctrica</option>
+            <option value="Hidroeléctrica">Hidroeléctrica</option>
           </select>
     
           <label className="block mb-2">Descripción del proyecto</label>

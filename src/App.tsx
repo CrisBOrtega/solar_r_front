@@ -14,8 +14,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/usuarios/crear" element={<UserForm />} />
-        <Route path="/proyectos/crear" element={<MultiPaso />} />
         <Route path="/login" element={<LoginForm />} />
+        <Route path="/proyectos/crear" element={<MultiPaso />} /> 
         <Route path="/proyectos/lista" element={<ProjectsList />} />
         <Route path="/proyectos/invertir" element={<InversionForm />} />
       </Routes>
