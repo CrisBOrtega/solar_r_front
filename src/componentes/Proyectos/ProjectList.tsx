@@ -26,7 +26,12 @@ export default function ProjectsList(){
   const fetchProyectos = async (): Promise<void> => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:3000/proyecto');
+      const response = await fetch('http://localhost:3000/proyecto',{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}` // Incluir el token en el encabezado
+      }} );
       
       if (!response.ok) {
         throw new Error(`Error HTTP: ${response.status}`);

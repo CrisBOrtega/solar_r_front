@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
+import { jwtDecode } from "jwt-decode";
 
 
 interface FormData {
-  username: string;
+  email: string;
   password: string;
 }
 
 interface FormErrors {
-  username?: string;
+  email?: string;
   password?: string;
 
 }
 
-interface UserType {
-  value: number;
-  label: string;
-}
 
 export default function LoginForm() {
   const [formData, setFormData] = useState<FormData>({
-    username: '',
+    email: '',
     password: '',
   
   });
@@ -46,15 +43,15 @@ export default function LoginForm() {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    if (!formData.username.trim()) {
-      newErrors.username = 'El nombre de usuario es requerido';
-    } else if (formData.username.length < 3) {
-      newErrors.username = 'El nombre de usuario debe tener al menos 3 caracteres';
+    if (!formData.email.trim()) {
+      newErrors.email = 'El email es requerido';
+    } else if (formData.email.length < 3) {
+      newErrors.email = 'El email debe tener al menos 3 caracteres';
     }
 
     if (!formData.password.trim()) {
       newErrors.password = 'La contraseña es requerida';
-    } else if (formData.password.length < 6) {
+    } else if (formData.password.length < 3) {
       newErrors.password = 'La contraseña debe tener al menos 6 caracteres';
     }
 
@@ -68,16 +65,17 @@ export default function LoginForm() {
       return;
     }
 
+   
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3000/usuarios/login', {
+      const response = await fetch('http://localhost:3000/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username: formData.username,
+          email: formData.email,
           password: formData.password,
         }),
       });
@@ -86,25 +84,28 @@ export default function LoginForm() {
         alert('Usuario logeado con éxito!');
         // Limpiar formulario después del éxito
         setFormData({
-          username: '',
+          email: '',
           password: '',
           
         });
      
         // Parsear la respuesta JSON
+
+        
         const data = await response.json();
+        console.log('receiving  data:', data);  
+        
+        //decodificar con jwt 
+       // const decoded = jwtDecode(data.token);
+        //console.log('decoded token:', decoded);
 
-        // Obtener el usuario_id de la respuesta
-        const usuarioId = data.usuario_id;
-        const usuario_tipo_id = data.usuario_tipo_id
+        //poner el rol en el local storage
+        localStorage.setItem('token', data.token);
 
-        //poner en el local storage
-        localStorage.setItem('usuario_id', usuarioId);
-        localStorage.setItem('usuario_tipo_id', usuario_tipo_id);
-
+  
         setErrors({});
       } else {
-        const errorData: any = await response.json();
+        const errorData = await response.json();
         alert(`Error al logear usuario: ${errorData.message || 'Error desconocido'}`);
       }
     } catch (error: unknown) {
@@ -124,24 +125,24 @@ export default function LoginForm() {
         </div>
 
         <div className="space-y-6">
-          {/* Campo Username */}
+          {/* Campo email */}
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
               Nombre de Usuario
             </label>
             <input
-              type="text"
-              id="username"
-              name="username"
-              value={formData.username}
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
               onChange={handleInputChange}
               className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
-                errors.username ? 'border-red-500' : 'border-gray-300'
+                errors.email ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="Ingresa el nombre de usuario"
             />
-            {errors.username && (
-              <p className="mt-1 text-sm text-red-600">{errors.username}</p>
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-600">{errors.email}</p>
             )}
           </div>
 
