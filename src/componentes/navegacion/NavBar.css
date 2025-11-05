@@ -1,0 +1,103 @@
+:root {
+  --nav-bg: #3F51B5;
+  --nav-accent: #646CFF;
+  --nav-text: #ffffff;
+  --nav-hover: #ffffffdd;
+  --accent-red: #e63946;
+}
+
+.top-nav {
+  background: var(--nav-bg);
+  padding: 12px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--nav-text);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  border-bottom: 3px solid var(--accent-red); /* detalle sutil */
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: .5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: var(--nav-text);
+  font-weight: 500;
+  text-decoration: none;
+  transition: .25s;
+}
+
+.nav-links a:hover {
+  color: var(--nav-accent);
+}
+
+.logout-btn {
+  background: var(--accent-red);
+  border: none;
+  padding: 6px 14px;
+  font-size: .9rem;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.logout-btn:hover {
+  opacity: .85;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: #3F51B5; /* Violeta profesional */
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px 18px; /* ✅ más compacto */
+  height: 52px;     /* ✅ altura reducida */
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  border-bottom: 2px solid #e63946; /* línea roja elegante */
+}
+
+.logo {
+  font-size: 1.05rem;/* ✅ texto más pequeño */
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 16px; /* ✅ menos separación */
+}
+
+.nav-links a {
+  font-size: 0.9rem; /* ✅ links más discretos */
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+}
+
+.logout-btn {
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  background: #e63946;
+  color: white;
+  border: none;
+}

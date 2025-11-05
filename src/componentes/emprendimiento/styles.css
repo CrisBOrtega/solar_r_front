@@ -1,0 +1,111 @@
+:root {
+  --vite-purple: #646cff;
+  --vite-yellow: #ffd62e;
+  --vite-violet: #3f51b5;
+  --vite-indigo: #7f85ff;
+  --vite-charcoal: #1e1e28;
+  --vite-gray: #d9dae0;
+}
+
+/* 🧱 Contenedor general */
+.lista-container {
+  background-color: #f9fafb;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* 🔹 Título */
+.titulo-principal {
+  color: var(--vite-violet);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+/* 📦 Cards */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card-proyecto {
+  background-color: #ffffff;
+  border-left: 6px solid var(--vite-purple);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* 🏷️ Textos dentro de la card */
+.nombre-proyecto {
+  font-size: 1.5rem;
+  color: var(--vite-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.tipo-energia {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.descripcion-proyecto {
+  color: #555;
+  max-width: 700px;
+  margin-bottom: 1rem;
+}
+
+/* 🔘 Botones */
+.acciones {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Botón principal */
+.btn-detalles {
+  background-color: var(--vite-purple);
+  color: #ffffff;
+}
+
+.btn-detalles:hover {
+  background-color: var(--vite-indigo);
+}
+
+/* Botón secundario */
+.btn-inversiones {
+  background-color: var(--vite-yellow);
+  color: var(--vite-charcoal);
+}
+
+.btn-inversiones:hover {
+  background-color: #ffe563;
+}
+
+/* 📊 Total de proyectos */
+.total-container {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--vite-gray);
+  text-align: left;
+}
+
+.total-texto {
+  color: var(--vite-violet);
+  font-weight: bold;
+  font-size: 1.1rem;
+}

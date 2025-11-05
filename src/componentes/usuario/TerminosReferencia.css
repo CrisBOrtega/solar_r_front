@@ -1,0 +1,126 @@
+.terminos-wrapper {
+  min-height: 100vh;
+  background: #F5F7FA;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.terminos-card {
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  padding: 40px;
+  border-radius: 14px;
+  border: 2px solid #E5E7EB;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* ✅ Mantener el título centrado */
+.terminos-title {
+  text-align: center;
+}
+
+/* ✅ Subtítulo también centrado */
+.terminos-subtitle {
+  text-align: center;
+}
+
+/* ✅ Todo el texto del documento alineado a la izquierda */
+.terminos-content {
+  text-align: left !important;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+/* ✅ Asegurar que los encabezados sigan alineados a la izquierda */
+.terminos-content h2 {
+  text-align: left !important;
+  margin-top: 22px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+
+.terminos-content p, .terminos-content li {
+  color: #4B5563;
+  font-size: 15px;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+.terminos-content ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  list-style: disc;
+}
+
+.terminos-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.terminos-back-btn {
+  padding: 10px 20px;
+  background: #E63946;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.terminos-back-btn:hover {
+  background: #c22d39;
+}
+
+/* ✅ Bloque checkbox */
+.aceptacion-box {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.aceptacion-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: #374151;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.aceptacion-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #646CFF; /* Violeta corporativo */
+}
+
+/* ✅ Botón Continuar */
+.terminos-continue-btn {
+  margin-left: 10px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  transition: .2s;
+}
+
+.terminos-continue-btn.enabled {
+  background: #646CFF;
+  color: white;
+  cursor: pointer;
+}
+
+.terminos-continue-btn.enabled:hover {
+  background: #4e52db;
+}
+
+.terminos-continue-btn.disabled {
+  background: #c4c4c4;
+  color: #6b6b6b;
+  cursor: not-allowed;
+}

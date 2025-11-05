@@ -1,60 +1,57 @@
 import React from "react";
 import type { FormData } from "./MultiPaso";
+import "./Paso4.css";
 
 interface Step4Props {
-    data: FormData;
-    update: (newData: Partial<FormData>) => void;
-  }
+  data: FormData;
+  update: (newData: Partial<FormData>) => void;
+  errors: any;
+}
 
-export const Paso4: React.FC<Step4Props> = ({ data, update }) => {
+export const Paso4: React.FC<Step4Props> = ({ data, update, errors }) => {
 
-  const handleChange = (
-    index: number,
-    field: "nombre" | "valor" | "cantidad",
-    value: string | number
-  ) => {
-    const newRecursos = [...data.recursos];
-    newRecursos[index] = {
-      ...newRecursos[index],
-      [field]: field === "valor" || field === "cantidad" ? Number(value) : value,
-    };
-    update({ recursos: newRecursos });
+  const handleChange = (i: number, field: "nombre" | "valor" | "cantidad", v: any) => {
+    const updated = [...data.recursos];
+    updated[i] = { ...updated[i], [field]: field !== "nombre" ? Number(v) : v };
+    update({ recursos: updated });
   };
-
-      
-
 
   return (
     <div>
-      <h3 className="mb-2 font-bold">Recursos del proyecto</h3>
-      {data.recursos.map((recurso, i) => (
-        <div key={i} className="border p-3 rounded mb-3">
-          <label className="block mb-1">Nombre recurso {i + 1}</label>
+      <h3 className="paso4-title">Recursos del proyecto</h3>
+
+      {data.recursos.map((r, i) => (
+        <div key={i} className="recurso-card">
+
+          <h4 className="recurso-header">Recurso {i + 1}</h4>
+
+          <label>Nombre</label>
           <input
-            type="text"
-            className="border p-2 w-full mb-2"
-            value={recurso.nombre}
+            className={errors[`rNombre${i}`] ? "mp-input error" : "mp-input"}
+            value={r.nombre}
             onChange={(e) => handleChange(i, "nombre", e.target.value)}
           />
+          {errors[`rNombre${i}`] && <div className="error-text">{errors[`rNombre${i}`]}</div>}
 
-          <label className="block mb-1">Valor</label>
+          <label>Valor</label>
           <input
-            type="number"
-            className="border p-2 w-full mb-2"
-            value={recurso.valor}
+            type="text"
+            className={errors[`rValor${i}`] ? "mp-input error" : "mp-input"}
+           
             onChange={(e) => handleChange(i, "valor", e.target.value)}
           />
+          {errors[`rValor${i}`] && <div className="error-text">{errors[`rValor${i}`]}</div>}
 
-          <label className="block mb-1">Cantidad</label>
+          <label>Cantidad</label>
           <input
-            type="number"
-            className="border p-2 w-full"
-            value={recurso.cantidad}
+            type="text"
+            className={errors[`rCantidad${i}`] ? "mp-input error" : "mp-input"}       
             onChange={(e) => handleChange(i, "cantidad", e.target.value)}
           />
+          {errors[`rCantidad${i}`] && <div className="error-text">{errors[`rCantidad${i}`]}</div>}
+
         </div>
       ))}
     </div>
   );
-  }
-  
+};

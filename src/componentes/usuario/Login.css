@@ -1,0 +1,110 @@
+.login-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F5F7FA;
+}
+
+/* Tarjeta */
+.login-card {
+  width: 380px;
+  background: white;
+  padding: 32px;
+  border-radius: 14px;
+  border: 2px solid #E5E7EB; /* gris profesional */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+/* Branding */
+.login-logo {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1F2937;
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  color: #6B7280;
+  margin-bottom: 28px;
+}
+
+/* Inputs */
+.form-group {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #D1D5DB;
+  outline: none;
+  transition: .2s;
+}
+
+.input:focus {
+  border-color: #646CFF;
+  box-shadow: 0 0 5px rgba(100,108,255,0.4);
+}
+
+.input.error {
+  border-color: #E63946;
+}
+
+.error-text {
+  font-size: 12px;
+  color: #E63946;
+  margin-top: 4px;
+}
+
+/* Botón */
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  font-weight: bold;
+  background: #E63946;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .2s;
+  margin-top: 8px;
+}
+
+.btn-login:hover {
+  background: #c22d39;
+}
+
+.btn-login:disabled {
+  background: #A0A0A0;
+  cursor: not-allowed;
+}
+
+/* Registro */
+.register-text {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #4B5563;
+}
+
+.register-link {
+  margin-left: 6px;
+  color: #646CFF;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
